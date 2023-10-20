@@ -1,5 +1,36 @@
-.homeContainer{
+/* Home.module.css */
+.homeContainer {
     display: flex;
     justify-content: center;
-    margin: auto;
-}
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .infoDownload {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .h3 {
+    font-size: 20px;
+  }
+  
+  .a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .a:hover {
+    background-color: #0059b3;
+    cursor: pointer;
+  }
