@@ -9,7 +9,7 @@ function MyForm({ onSubmit}:MyFormProps) {
    
   return (
     <form className={styles.ytForm } onSubmit={onSubmit}>
-      <input placeholder='Enter url video from Youtube or Phuong My Chi Music' type="text" name="urlVideo" className={styles?.ytInput} />
+      <input placeholder='Enter url video from Youtube or Phuong My Chi Music (phuongmychi.vn)' type="text" name="urlVideo" className={styles?.ytInput} />
       <button type="submit" className={styles?.ytButton}>Submit</button>
     </form>
   );
