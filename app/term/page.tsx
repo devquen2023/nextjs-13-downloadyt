@@ -2,8 +2,12 @@
 import Link from "next/link";
 import styles from "./Term.module.css"
 import {memo} from 'react'
+import type { Metadata } from 'next'
 
-
+export const metadata: Metadata = {
+    title: 'Điều khoản dịch vụ',
+    description: 'Vui lòng đọc kỹ điều khoản dịch vụ trước khi sử dụng sản phẩm',
+  }
 const Term = memo(function Term() {
     return (<div className={styles?.termContainer}>
         <div>

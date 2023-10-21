@@ -29,8 +29,8 @@ async function getData(idVideo: string | File) {
                 // console.log("Service Unavailable (503) error:", error.message);
                 swal("Oops", `${error?.response?.data?.error}`, "error");
 
-            
-            }else {
+
+            } else {
                 console.log("Unknown error with status code:", error.response.statusCode);
             }
         } else {
@@ -38,6 +38,7 @@ async function getData(idVideo: string | File) {
         }
     }
 }
+
 const Home = () => {
     const [data, setData] = useState<any>();
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -61,6 +62,9 @@ const Home = () => {
             }
         }
     }
+
+    const audioFilter = data?.adaptiveFormats?.filter((item: any) => item?.audioQuality === 'AUDIO_QUALITY_MEDIUM')
+
     return (<>
         <div className={styles.homeContainer}>
             <div>
@@ -68,12 +72,25 @@ const Home = () => {
                     <h1> Download Video from Youtube</h1>
                     <Form onSubmit={onSubmit} />
                 </div>
+                {/* <div >
+                    <h3 > Url Support :</h3>
+                    <div style={{fontSize:'12px'}}>
+                    <p>https://youtube.com/watch?v=xxxxx</p>
+                    <p>https://phuongmychi.vn/watch?v=xxxxx</p>
+                    <p>https://youtu.be/xxxxxx</p>
+                    </div>
+                </div> */}
+
                 {data ? <div className={styles.infoDownload}>
                     <h3>{data?.title}</h3>
-                    <a className={styles.a} target="_blank" href={data?.mp4URL} download>Download</a>
-                    <p>By clicking Download, you agree to our <Link  target="_blank" style={{textDecoration:'none'}} href={"/term"}>Terms of service</Link></p>
+                    <a className={styles.a} style={{ margin: '0 2px' }} target="_blank" href={data?.mp4URL} download>Download</a>
+
+                    <a className={styles.a} target="_blank" href={audioFilter?.[0]?.url} download>Download Mp3 </a>
+
+                    <p>By clicking Download, you agree to our <Link target="_blank" style={{ textDecoration: 'none' }} href={"/term"}>Terms of service</Link></p>
                 </div> : <div className={styles.infoDownload}>
                     <h3>Content Download will appear here</h3>
+                    
                 </div>}
             </div>
         </div>
