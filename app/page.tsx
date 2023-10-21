@@ -6,6 +6,7 @@ import { FormEvent, useState } from "react";
 import styles from "./home/home.module.css";
 import { extractYouTubeVideoId, isValidYouTubeURL } from "utils";
 import swal from 'sweetalert';
+import Link from "next/link";
 
 async function getData(idVideo: string | File) {
     if (!idVideo) {
@@ -30,7 +31,7 @@ async function getData(idVideo: string | File) {
 
             
             }else {
-                console.log("Unknown error with status code:", error.response.status);
+                console.log("Unknown error with status code:", error.response.statusCode);
             }
         } else {
             console.log("Request failed with an unknown error:", error.message);
@@ -70,6 +71,7 @@ const Home = () => {
                 {data ? <div className={styles.infoDownload}>
                     <h3>{data?.title}</h3>
                     <a className={styles.a} target="_blank" href={data?.mp4URL} download>Download</a>
+                    <p>By clicking Download, you agree to our <Link  target="_blank" style={{textDecoration:'none'}} href={"/term"}>Terms of service</Link></p>
                 </div> : <div className={styles.infoDownload}>
                     <h3>Content Download will appear here</h3>
                 </div>}
