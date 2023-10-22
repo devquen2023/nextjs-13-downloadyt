@@ -58,7 +58,8 @@ const Home = () => {
                 const data = await getData(idVideoString);
                 setData(data);
             } else {
-                alert("Error url ")
+             swal("Oops", `Pls enter correct youtube or Phuong My Chi Music Url`, "error");
+
             }
         }
     }
