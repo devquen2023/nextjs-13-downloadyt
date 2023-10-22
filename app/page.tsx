@@ -58,7 +58,7 @@ const Home = () => {
                 const data = await getData(idVideoString);
                 setData(data);
             } else {
-             swal("Oops", `Pls enter correct youtube or Phuong My Chi Music Url`, "error");
+             swal("Oops", `Pls enter correct Youtube or Phuong My Chi Music Url`, "error");
 
             }
         }
