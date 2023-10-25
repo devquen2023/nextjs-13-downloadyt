@@ -13,7 +13,7 @@ async function getData(idVideo: string | File) {
         return;
     }
     try {
-        const dataToken = await axios.post(`${API_URL_TOKEN}/auth/get-token`);
+        const dataToken = await axios.get(`${API_URL_TOKEN}/auth/get-token`);
         const axiosConfig = {
             headers: {
                 Authorization: `Bearer ${dataToken?.data?.token}`,
